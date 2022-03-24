@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <script>
-            function computerPlay() {
+         const playerSelection = "rock";
+         const computerSelection = computerPlay();
+
+         console.log(playRound(computerSelection, playerSelection));
+
+        function playRound(computerSelection, playerSelection){
+
+            }
+
+
+
+
+        function computerPlay() {
                 const hands = ["rock", "paper", "scissors"];
                 const randomHand = hands[Math.floor(Math.random() * hands.length)];
                 console.log(randomHand);
