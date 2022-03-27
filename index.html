@@ -6,20 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <script>
-         const playerSelection = "rock";
-         const computerSelection = computerPlay();
 
-         console.log(playRound(computerSelection, playerSelection));
+         game();
+
+         function game(){
+            let computerPoints = 0;
+            let playerPoints = 0;
+             for (let i = 0; i < 5; i++) {
+                 const playerSelection = prompt().toLowerCase();
+                 const computerSelection = computerPlay();
+                 let results = playRound(computerSelection, playerSelection);
+                 console.log(`player selection: ${playerSelection}`)
+                 console.log(results);
+                 if (results === "you win") {
+                     playerPoints++;
+                 } else if (results === "you lose"){
+                     computerPoints++;
+                 }       
+             }
+             if (playerPoints > computerPoints) console.log("YOU ARE THE WINNER");
+             else if (computerPoints > playerPoints) console.log("YOU ARE THE LOSER");
+             else console.log("NO ONE WINS");
+         }
 
         function playRound(computerSelection, playerSelection){
-            console.log(computerSelection);
+            console.log(`computer selection: ${computerSelection}`);
                switch (playerSelection) {
                    case "rock":
-                       if (computerSelection == "paper") {
+                       if (computerSelection === "paper") {
                            return "you lose";
-                       } else if (computerSelection == "scissors") {
+                       } else if (computerSelection === "scissors") {
                            return "you win";
                        } else return "draw";
+                       break;
+                    case "paper":
+                       if (computerSelection === "paper") {
+                           return "draw";
+                       } else if (computerSelection === "scissors") {
+                           return "you lose";
+                       } else return "you win";
+                       break;
+                     case "scissors":
+                       if (computerSelection === "paper") {
+                           return "you win";
+                       } else if (computerSelection === "scissors") {
+                           return "draw";
+                       } else return "you lose";
                        break;
                     default: 
                        return "nothing";
