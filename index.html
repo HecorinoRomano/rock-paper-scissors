@@ -12,7 +12,18 @@
          console.log(playRound(computerSelection, playerSelection));
 
         function playRound(computerSelection, playerSelection){
-
+            console.log(computerSelection);
+               switch (playerSelection) {
+                   case "rock":
+                       if (computerSelection == "paper") {
+                           return "you lose";
+                       } else if (computerSelection == "scissors") {
+                           return "you win";
+                       } else return "draw";
+                       break;
+                    default: 
+                       return "nothing";
+               }
             }
 
 
@@ -21,7 +32,7 @@
         function computerPlay() {
                 const hands = ["rock", "paper", "scissors"];
                 const randomHand = hands[Math.floor(Math.random() * hands.length)];
-                console.log(randomHand);
+                return randomHand;
             }
 
             computerPlay();
